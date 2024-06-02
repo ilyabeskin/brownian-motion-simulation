@@ -1,3 +1,17 @@
+#-------------------------------------------------------------------------------
+# This code is based on the method described in
+# 	"Simulation of a Brownian particle in an optical trap" 
+# 	by Giorgio Volpe and Giovanni Volpe
+#	
+#	American Journal of Physics 81, 224 (2013); doi: 10.1119/1.4772632
+#
+#-------------------------------------------------------------------------------
+#
+# Code written by Ilya M. Beskin
+# Updated: Jun 2, 2024
+#
+#-------------------------------------------------------------------------------
+
 import matplotlib.pyplot as plt
 import numpy as np
 import random
