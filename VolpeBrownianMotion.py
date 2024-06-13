@@ -31,7 +31,7 @@ def WhiteNoise(delT):
 #	spK		-> Spring coefficient of particle.
 #	showPlots -> Boolean variable. If set to true, MatPlotLib plots of generated trajectory will appear.
 def generateATraj(totTime,delT, gamma, m, spK, showPlots):
-	totSteps = int(totTime/delT)
+	totSteps = int(np.ceil(totTime/delT))
 
 	randNums = np.zeros(totSteps) # randNums will record the sequence of generated white noise
 	brownPos = np.zeros(totSteps) # brownPos will record the position of your particle
@@ -98,14 +98,14 @@ r = 100e-9					# radius [m]
 gamma = 6*np.pi*eta*r 		# Stokes drag
 m = 4/3*np.pi*(r**3)*1000	# mass in Kg (polystyrene microparticle)
 print("Mass is "+ str(m))
-spK = 1e-6					# Spring coefficient of trap in N/m
+spK = 15e-7					# Spring coefficient of trap in N/m
 print("Your gamma is " + str(gamma))
 
 #findMSD(100, runTime, delT, gamma, m, spK)
 traj = generateATraj(runTime, delT, gamma, m, spK, showPlots=False)
-plt.plot(np.arange(1e-5,runTime,delT), traj*1e9, color='black')
+plt.plot(np.arange(0,runTime,delT), traj*1e9, color='black')
 plt.xlabel("Time (s)")
 plt.ylabel("X Displacement (nm)")
 plt.show()
 
-#np.savetxt('brownSimData.csv',timeSeq,delimiter=',')
+#np.savetxt('brownSimData.csv',traj,delimiter=',')
